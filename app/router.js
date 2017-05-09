@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import * as Posts from './controllers/post_controller';
 
+// The framework for the router shortcut was based on code provided to us by Tim in the assignment
+
 const router = Router();
 
 // router.get('/', (req, res) => {

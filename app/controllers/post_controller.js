@@ -1,5 +1,8 @@
 import Post from '../models/post_model';
 
+// The code for the createPost method was given to use by Tim in the assignment
+// I used the Mongoose methods documentation to implement these controller methods
+
 export const createPost = (req, res) => {
   const post = new Post();
   post.title = req.body.title;
@@ -51,5 +54,17 @@ export const deletePost = (req, res) => {
 };
 
 export const updatePost = (req, res) => {
-  res.send('update a post here');
+  Post.findById(req.params.id)
+    .then((result) => {
+      result.title = req.body.title;
+      result.tags = req.body.tags;
+      result.content = req.body.content;
+      result.cover_url = req.body.cover_url;
+      return result.save();
+    }).then((result) => {
+      res.json({ result });
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
 };

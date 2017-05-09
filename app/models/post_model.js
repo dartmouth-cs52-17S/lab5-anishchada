@@ -1,5 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
+// PostSchema based on PollSchema code from short assignment 7
+
 // create a PostSchema with a title field
 const PostModelSchema = new Schema({
   title: String,
@@ -14,6 +16,5 @@ const PostModelSchema = new Schema({
 
 // create PostModel class from schema
 const PostModel = mongoose.model('Post', PostModelSchema);
-
 
 export default PostModel;
