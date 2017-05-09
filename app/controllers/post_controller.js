@@ -16,15 +16,38 @@ export const createPost = (req, res) => {
 };
 
 export const getPosts = (req, res) => {
-  res.send('posts should be returned');
+  Post.find({})
+    .then((result) => {
+      res.json(result.map((post) => {
+        return { id: post._id, title: post.title, tags: post.tags, cover_url: post.cover_url };
+      }),
+    );
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
 };
 
 export const getPost = (req, res) => {
-  res.send('single post looked up');
+  Post.findById(req.params.id)
+    .then((result) => {
+      res.json({ result });
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
 };
 
+// Referenced http://mongoosejs.com/docs/api.html for findByIdAndRemove method documentation
+
 export const deletePost = (req, res) => {
-  res.send('delete a post here');
+  Post.findByIdAndRemove(req.params.id)
+    .then((result) => {
+      res.json({ message: 'Post deleted!' });
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
 };
 
 export const updatePost = (req, res) => {
