@@ -5,11 +5,11 @@ import Post from '../models/post_model';
 
 // This cleanposts method was given to us by Tim in the assignment
 
-const cleanPosts = (posts) => {
-  return posts.map((post) => {
-    return { id: post._id, title: post.title, tags: post.tags, cover_url: post.cover_url };
-  });
-};
+// const cleanPosts = (posts) => {
+//   return posts.map((post) => {
+//     return { id: post._id, title: post.title, tags: post.tags, cover_url: post.cover_url };
+//   });
+// };
 
 export const createPost = (req, res) => {
   const post = new Post();
