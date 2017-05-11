@@ -2,6 +2,7 @@ import Post from '../models/post_model';
 
 // The code for the createPost method was given to use by Tim in the assignment
 // I used the Mongoose methods documentation to implement these controller methods
+// I got some help from both Tim and Jon Gonzalez in implementing a few of these below controller functions
 
 // This cleanposts method was given to us by Tim in the assignment
 
@@ -26,6 +27,8 @@ export const createPost = (req, res) => {
     });
 };
 
+// Referenced http://mongoosejs.com/docs/api.html for find and the return. Used part of the cleanposts method directly implemented here
+
 export const getPosts = (req, res) => {
   Post.find({})
     .then((result) => {
@@ -38,6 +41,8 @@ export const getPosts = (req, res) => {
       res.status(500).json({ error });
     });
 };
+
+// Referenced http://mongoosejs.com/docs/api.html for findById
 
 export const getPost = (req, res) => {
   Post.findById(req.params.id)
@@ -61,6 +66,8 @@ export const deletePost = (req, res) => {
       res.status(500).json({ error });
     });
 };
+
+// Referenced http://mongoosejs.com/docs/api.html for findById and Save
 
 export const updatePost = (req, res) => {
   Post.findById(req.params.id)
