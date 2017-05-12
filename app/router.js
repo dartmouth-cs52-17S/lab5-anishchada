@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import * as Posts from './controllers/post_controller';
+import * as UserController from './controllers/user_controller';
+import { requireAuth, requireSignin } from './services/passport';
 
 // The framework for the router shortcut was based on code provided to us by Tim in the assignment
 
@@ -31,12 +33,15 @@ const router = Router();
 
 router.route('/posts/:id')
   .get(Posts.getPost)
-  .put(Posts.updatePost)
-  .delete(Posts.deletePost);
+  .put(requireAuth, Posts.updatePost)
+  .delete(requireAuth, Posts.deletePost);
 
 router.route('/posts')
-  .post(Posts.createPost)
+  .post(requireAuth, Posts.createPost)
   .get(Posts.getPosts);
+
+router.post('/signin', requireSignin, UserController.signin);
+router.post('/signup', UserController.signup);
 
 // your routes will go here
 
