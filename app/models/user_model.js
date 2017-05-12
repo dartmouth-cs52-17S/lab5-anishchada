@@ -17,10 +17,6 @@ const UserModelSchema = new Schema({
   },
 });
 
-UserModelSchema.set('toJSON', {
-  virtuals: true,
-});
-
 // Adapted code from http://stackoverflow.com/questions/14588032/mongoose-password-hashing (link provided in assignment) for this function
 
 UserModelSchema.pre('save', function beforeYourModelSave(next) {
@@ -43,12 +39,11 @@ UserModelSchema.pre('save', function beforeYourModelSave(next) {
       user.password = hash;
       return next();
     });
-    return next();
+    // return next();
   });
 
   // when done run the next callback with no arguments
   // call next with an error if you encounter one
-  return next();
 });
 
 // This code is from http://stackoverflow.com/questions/14588032/mongoose-password-hashing for this component
