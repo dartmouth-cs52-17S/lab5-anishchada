@@ -20,6 +20,11 @@ http://mongoosejs.com/docs/api.html
 http://stackoverflow.com/questions/32811510/mongoose-findoneandupdate-doesnt-return-updated-document  
 Discussed the methods of this assignment with Dami Apoeso and Justin Gualtieri.
 
+http://stackoverflow.com/questions/14588032/mongoose-password-hashing
+http://stackoverflow.com/questions/16882938/how-to-check-if-that-data-already-exist-in-the-database-during-update-mongoose  
+http://stackoverflow.com/questions/25232423/mongo-mongoose-check-if-an-item-exists  
+
+
 # starter express app template
 
 * node with babel
