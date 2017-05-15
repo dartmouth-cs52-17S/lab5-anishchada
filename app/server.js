@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 // at top of server.js
 import apiRouter from './router';
 
-// Most of the server.js code was provided to us by Tim in the assignment description and from short assignment 7
+// Most of the server.js code was provided to us by Tim in the assignment description/from short assignment 7
 
 // initialize
 const app = express();
