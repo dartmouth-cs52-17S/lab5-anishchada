@@ -21,6 +21,8 @@ export const createPost = (req, res) => {
   post.author = req.user;
   post.save()
     .then((result) => {
+      console.log('+++++++++++++');
+      console.log(post);
       res.json({ message: 'Post created!' });
     })
     .catch((error) => {
