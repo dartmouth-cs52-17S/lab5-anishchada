@@ -11,6 +11,7 @@ const saltRounds = 10;
 const UserModelSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
+  username: String,
 }, {
   toJSON: {
     virtuals: true,
